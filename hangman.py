@@ -80,6 +80,9 @@ WORD_LIST = [
     "software", "hardware", "database", "network", "internet"
 ]
 
+# Maximum number of incorrect guesses allowed
+MAX_ATTEMPTS = 6
+
 
 def get_random_word():
     """Select a random word from the word list."""
@@ -100,7 +103,7 @@ def display_game_state(word, guessed_letters, incorrect_guesses):
     
     print(f"Word: {display_word}")
     print(f"Incorrect guesses: {', '.join(sorted(incorrect_guesses)) if incorrect_guesses else 'None'}")
-    print(f"Remaining attempts: {6 - len(incorrect_guesses)}")
+    print(f"Remaining attempts: {MAX_ATTEMPTS - len(incorrect_guesses)}")
 
 
 def get_guess(guessed_letters):
@@ -123,7 +126,6 @@ def play_hangman():
     word = get_random_word()
     guessed_letters = set()
     incorrect_guesses = []
-    max_attempts = 6
     
     print("=" * 50)
     print("Welcome to Hangman!")
@@ -141,8 +143,8 @@ def play_hangman():
             break
         
         # Check for lose condition
-        if len(incorrect_guesses) >= max_attempts:
-            print("\n" + HANGMAN_STAGES[-1])
+        if len(incorrect_guesses) >= MAX_ATTEMPTS:
+            print("\n" + HANGMAN_STAGES[len(incorrect_guesses)])
             print("=" * 50)
             print(f"Game Over! You lost. The word was: {word}")
             print("=" * 50)
