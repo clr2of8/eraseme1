@@ -31,4 +31,3 @@ chmod +x hangman.py
 - Visual hangman stages showing game progression
 - Input validation (only accepts single letters, no duplicates)
 - Win/lose conditions with appropriate messages
-- Replay option to play multiple rounds

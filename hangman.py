@@ -162,15 +162,8 @@ def play_hangman():
 
 
 def main():
-    """Main function to run the game with replay option."""
-    while True:
-        play_hangman()
-        
-        # Ask if player wants to play again
-        play_again = input("\nWould you like to play again? (yes/no): ").lower().strip()
-        if play_again not in ['yes', 'y']:
-            print("\nThanks for playing Hangman! Goodbye!")
-            break
+    """Main function to run the game."""
+    play_hangman()
 
 
 if __name__ == "__main__":
