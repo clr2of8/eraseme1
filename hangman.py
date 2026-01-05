@@ -144,7 +144,7 @@ def play_hangman():
         
         # Check for lose condition
         if len(incorrect_guesses) >= MAX_ATTEMPTS:
-            print("\n" + HANGMAN_STAGES[len(incorrect_guesses)])
+            print("\n" + HANGMAN_STAGES[min(len(incorrect_guesses), len(HANGMAN_STAGES) - 1)])
             print("=" * 50)
             print(f"Game Over! You lost. The word was: {word}")
             print("=" * 50)
